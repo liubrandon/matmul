@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18747314246C4EDA00F94A3D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18747313246C4EDA00F94A3D /* main.cpp */; };
+		1874733A246C70BF00F94A3D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1874731F246C5ECA00F94A3D /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +24,8 @@
 
 /* Begin PBXFileReference section */
 		18747310246C4EDA00F94A3D /* matrix-mul */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "matrix-mul"; sourceTree = BUILT_PRODUCTS_DIR; };
-		18747313246C4EDA00F94A3D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		18747313246C4EDA00F94A3D /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		1874731F246C5ECA00F94A3D /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +58,8 @@
 		18747312246C4EDA00F94A3D /* matrix-mul */ = {
 			isa = PBXGroup;
 			children = (
-				18747313246C4EDA00F94A3D /* main.cpp */,
+				1874731F246C5ECA00F94A3D /* main.cpp */,
+				18747313246C4EDA00F94A3D /* main.c */,
 			);
 			path = "matrix-mul";
 			sourceTree = "<group>";
@@ -119,7 +121,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18747314246C4EDA00F94A3D /* main.cpp in Sources */,
+				1874733A246C70BF00F94A3D /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,16 +172,34 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				GCC_VERSION = com.intel.compilers.icc.latest;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				"HEADER_SEARCH_PATHS[arch=*]" = /opt/intel/compilers_and_libraries_2020.1.216/mac/mkl/include;
+				ICC_MKL = threaded;
+				ICC_RT_LIBRARY = dynamic;
+				"INCLUDED_SOURCE_FILE_NAMES[arch=*]" = main.cpp;
+				"LD_RUNPATH_SEARCH_PATHS[arch=*]" = (
+					/opt/intel/compilers_and_libraries_2020.1.216/mac/compiler/lib,
+					/opt/intel/compilers_and_libraries_2020.1.216/mac/mkl/lib,
+				);
+				"LIBRARY_SEARCH_PATHS[arch=*]" = /opt/intel/compilers_and_libraries_2020.1.216/mac/mkl/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_LDFLAGS[arch=*]" = (
+					"-lmkl_intel_lp64",
+					"-lmkl_intel_thread",
+					"-lmkl_core",
+					"-lpthread",
+					"-lm",
+					"-ldl",
+				);
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -222,15 +242,33 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_VERSION = com.intel.compilers.icc.latest;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				"HEADER_SEARCH_PATHS[arch=*]" = /opt/intel/compilers_and_libraries_2020.1.216/mac/mkl/include;
+				ICC_MKL = threaded;
+				ICC_RT_LIBRARY = dynamic;
+				"INCLUDED_SOURCE_FILE_NAMES[arch=*]" = main.cpp;
+				"LD_RUNPATH_SEARCH_PATHS[arch=*]" = (
+					"/opt/intel/compilers_and_libraries_2020.1.216/mac/compiler/lib\n/opt/intel/compilers_and_libraries_2020.1.216/mac/compiler/lib\n",
+					/opt/intel/compilers_and_libraries_2020.1.216/mac/mkl/lib,
+				);
+				"LIBRARY_SEARCH_PATHS[arch=*]" = /opt/intel/compilers_and_libraries_2020.1.216/mac/mkl/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				"OTHER_LDFLAGS[arch=*]" = (
+					"-lmkl_intel_lp64",
+					"-lmkl_intel_thread",
+					"-lmkl_core",
+					"-lpthread",
+					"-lm",
+					"-ldl",
+				);
 				SDKROOT = macosx;
 			};
 			name = Release;
